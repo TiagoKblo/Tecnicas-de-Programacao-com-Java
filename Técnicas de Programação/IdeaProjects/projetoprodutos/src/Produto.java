@@ -35,18 +35,19 @@ public class Produto {
     }
 
     //métodos que atendem os requisitos
-    public void darEntradaNoEstoque(int quantidade) {
+    public void darEntradaNoEstoque(int quantidade){
         this.quantidade += quantidade;
     }
-    public void darSaidaDoEstoque(int quantidade) {
+    public void darSaidaDoEstoque(int quantidade){
         this.quantidade -= quantidade;
     }
 
-    public void imprimir() {
+    public void imprimir(){
+        System.out.println();
         System.out.println("Código: " + codigo);
         System.out.println("Descrição: " + descricao);
         System.out.println("Quantidade: " + quantidade);
         System.out.println("Preço: " + preco);
-        System.out.println("-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=");
+        System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-");
     }
 }

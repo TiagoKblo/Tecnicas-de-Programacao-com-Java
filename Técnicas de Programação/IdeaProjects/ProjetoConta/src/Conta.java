@@ -36,16 +36,15 @@ public class Conta {
         this.nomeCliente = nomeCliente;
     }
 
-    public boolean sacar(double valor) {
-        if(valor <= saldo){
+    public boolean sacar(double valor){
+        if(valor<=saldo){
             saldo -= valor;
             return true;
         }
         return false;
     }
-    public void depositar(double valor) {
+    public void depositar(double valor){
         saldo += valor;
-
     }
     public void imprimir(){
         System.out.println("numConta = " + numConta);
@@ -53,5 +52,4 @@ public class Conta {
         System.out.println("saldo = " + saldo);
         System.out.println("nomeCliente = " + nomeCliente);
     }
-
 }

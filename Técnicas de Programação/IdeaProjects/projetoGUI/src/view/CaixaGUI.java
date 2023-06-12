@@ -9,38 +9,40 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
-public class CaixaGUI extends JFrame implements ActionListener, WindowListener {
+public class CaixaGUI extends JFrame implements ActionListener,
+        WindowListener {
     private Label lblValor, lblSaldo;
     private TextField txtValor, txtSaldo;
     private Button cmdEntrada, cmdRetirada, cmdConsulta, cmdSair;
     private TextArea txtMsg;
     private Dimension dLabel, dTextField, dButton, dTextArea, dFrame;
+
     private Caixa caixa = new Caixa();
     public CaixaGUI(){
-        //método construtor
+        //metodo construtor
         dFrame = new Dimension(350,400);
         dLabel = new Dimension(40,20);
         dTextField = new Dimension(150,20);
         dButton = new Dimension(95,20);
-        dTextArea = new Dimension(300,140);
+        dTextArea = new Dimension(300, 140);
         this.setTitle("Controle de Caixa");
         this.setSize(dFrame);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.setLayout(null);
-        //Adicionar os elementos na Janela
+        //adicionar os elementos na janela
         lblValor = new Label("Valor: ");
         lblValor.setSize(dLabel);
         lblValor.setLocation(25,50);
         this.add(lblValor);
 
-        lblSaldo = new Label("Saldo");
+        lblSaldo = new Label("Saldo: ");
         lblSaldo.setSize(dLabel);
         lblSaldo.setLocation(25,80);
         this.add(lblSaldo);
 
-        txtValor= new TextField(null);
+        txtValor = new TextField(null);
         txtValor.setSize(dTextField);
         txtValor.setLocation(75,50);
         this.add(txtValor);
@@ -72,7 +74,7 @@ public class CaixaGUI extends JFrame implements ActionListener, WindowListener {
 
         txtMsg = new TextArea(null);
         txtMsg.setSize(dTextArea);
-        txtMsg.setLocation(20,220);
+        txtMsg.setLocation(25,220);
         this.add(txtMsg);
 
         cmdEntrada.addActionListener(this);
@@ -85,22 +87,40 @@ public class CaixaGUI extends JFrame implements ActionListener, WindowListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource()==cmdEntrada){
-            double valor = Double.parseDouble(txtValor.getText());
-            caixa.depositar(valor);
-            txtMsg.append("Depósito de R$ " + valor + "efetuado com sucesso! \n");
-            txtValor.setText(null);
-            txtSaldo.setText(null);
-            txtValor.requestFocus();
-            return;
+            try{
+                double valor = Double.parseDouble(txtValor.getText());
+                caixa.depositar(valor);
+                txtMsg.append("Depósito de R$ " + valor + " efetuado \n");
+                txtValor.setText(null);
+                txtSaldo.setText(null);
+                txtValor.requestFocus();
+                return;
+            }catch (Exception exception){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Erro: " + exception.getMessage(),
+                        "Aconteceu um erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         }
         if(e.getSource()==cmdRetirada){
-            double valor = Double.parseDouble(txtValor.getText());
-            caixa.sacar(valor);
-            txtMsg.append("Saque de R$ " + valor + "efetuado com sucesso! \n");
-            txtValor.setText(null);
-            txtSaldo.setText(null);
-            txtValor.requestFocus();
-            return;
+            try{
+                double valor = Double.parseDouble(txtValor.getText());
+                caixa.sacar(valor);
+                txtMsg.append("Saque de R$ " + valor + " efetuado \n");
+                txtValor.setText(null);
+                txtSaldo.setText(null);
+                txtValor.requestFocus();
+                return;
+            }catch (Exception exception){
+                JOptionPane.showMessageDialog(
+                        null,
+                        "Erro: " + exception.getMessage(),
+                        "Aconteceu um erro",
+                        JOptionPane.ERROR_MESSAGE
+                );
+            }
         }
         if(e.getSource()==cmdConsulta){
             txtSaldo.setText(Double.toString(caixa.getSaldo()));
@@ -108,7 +128,6 @@ public class CaixaGUI extends JFrame implements ActionListener, WindowListener {
         }
         if(e.getSource()==cmdSair){
             System.exit(0);
-
         }
     }
 
@@ -121,10 +140,9 @@ public class CaixaGUI extends JFrame implements ActionListener, WindowListener {
     public void windowClosing(WindowEvent e) {
         JOptionPane.showMessageDialog(
                 null,
-                "Saindo do Sistema",
+                "Saindo do sistema",
                 "Atenção",
                 JOptionPane.INFORMATION_MESSAGE
-
         );
     }
 

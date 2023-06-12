@@ -1,15 +1,14 @@
 public class Apolice {
-
-    private String nomeAssegurado;
+    private String nomeSegurado;
     private int idade;
     private float valorPremio;
 
-    public String getNomeAssegurado() {
-        return nomeAssegurado;
+    public String getNomeSegurado() {
+        return nomeSegurado;
     }
 
-    public void setNomeAssegurado(String nomeAssegurado) {
-        this.nomeAssegurado = nomeAssegurado;
+    public void setNomeSegurado(String nomeSegurado) {
+        this.nomeSegurado = nomeSegurado;
     }
 
     public int getIdade() {
@@ -28,10 +27,9 @@ public class Apolice {
         this.valorPremio = valorPremio;
     }
 
-    public void imprimir() {
-        System.out.println("Nome do Assegurado: " + nomeAssegurado);
+    public void imprimir(){
+        System.out.println("Nome do Segurado: " +nomeSegurado);
+        System.out.println("Valor do prêmio: " +valorPremio);
         System.out.println("Idade: " + idade);
-        System.out.println("Valor do Prêmio: " + valorPremio);
     }
-
 }

@@ -12,7 +12,7 @@ public class Gerenciar {
         cliente1.adicionarCarro(carro2);
         //Mariazinha é dona do C3
         cliente2.adicionarCarro(carro3);
-        System.out.println(cliente1);
+        System.out.println(cliente2);
 
     }
 }

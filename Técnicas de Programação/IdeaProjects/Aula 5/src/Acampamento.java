@@ -1,14 +1,14 @@
 public class Acampamento {
-    private String Nome;
+    private String nome;
     private char equipe;
     private int idade;
 
     public String getNome() {
-        return Nome;
+        return nome;
     }
 
     public void setNome(String nome) {
-        Nome = nome;
+        this.nome = nome;
     }
 
     public char getEquipe() {
@@ -26,26 +26,26 @@ public class Acampamento {
     public void setIdade(int idade) {
         this.idade = idade;
     }
+
     public void imprimir() {
-        System.out.println("Nome = " + Nome);
+        System.out.println("nome = " + nome);
         System.out.println("equipe = " + equipe);
         System.out.println("idade = " + idade);
-
     }
+
     public void separarGrupo(){
-        if (idade < 6){
+        if(idade <6){
             equipe = '-';
             return;
         }
-        if (idade < 11){
+        if(idade <= 10){
             equipe = 'A';
             return;
         }
-        if (idade<21){
-            equipe= 'B';
+        if(idade<=20){
+            equipe = 'B';
             return;
         }
         equipe = 'C';
-        }
+    }
 }
-
