@@ -2,7 +2,7 @@
 
 ## Requisitos
 
-- [x] Criar um repositório no GitHub com o nome de `ProvaMaromoLoja`
+- [x] Criar um repositório no GitHub com o nome de `ProvaFinalLoja`
 - [x] Adicionar colaboradores ao projeto
 - [x] Criar classes necessárias para o projeto
 - [x] Cadastrar Produtos
